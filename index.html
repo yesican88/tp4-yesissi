@@ -12,16 +12,16 @@
     <title>Letterboxd</title>
 </head>
 
-<body >
+<body onload="onLoad();">
     <div class="container">
         <nav class="nav">
             <a href="#" class="logo"><img src="images/iso_blanco_transparent.svg" alt="Ada"></a>
             <ul class="nav-list">
-                <li class='nav-item'>
+                <li class='nav-item' >
                     <a href="#" class="nav-link">
-                        <div class="image-container">
+                        <div class="image-container" id="popular" >
                                 <div class="svg"><i class="fas fa-arrow-up"></i></div>
-                            <span class="title-popular">POPULAR</span>
+                            <a class="title-popular" onclick="popular()">POPULAR</a>
                         </div>
                     </a>
                 </li>
@@ -54,7 +54,7 @@
         <header class="search">
             <div class="image-container">
                 <div class="search-icon"><i class="fas fa-search"></i></div>
-                <input type="text" placeholder="Search for a movie..." class="search-input" >
+                <input type="text" placeholder="Search for a movie..." class="search-input" onkeypress="keyPress()">
             </div>
         </header>
         <section class="main">

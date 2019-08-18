@@ -1,29 +1,79 @@
-// const onLoad = () => {
-//     keyPress();
-//     searchMovie();
-// }
+const api_key = 'd25219b09e23f4a8cbeed6c5ebe7ac2a'
+let searchInput = ''
+const popularMovies = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`
+const topRatedMovies = `https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}`
+const upcomingMovies = `https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}`
+const nowPlayingMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}`
+
+/*     
+fetch (popularMovies)
+    .then( (response) => response.json())
+    .then( resSection => console.log(resSection.results)) */
+
+
+// //Popular
+
+
+const onLoad = () => {
+    sectionPopular();
+    popular();
+} 
+
+const popular = () => {
+    let popular = document.getElementById('popular')
+
+}
+
+    const sectionPopular = () => {  
+        fetch(popularMovies)
+        .then(response =>  response.json())
+        .then(resPopular => console.log(resPopular.results))
+    }
+
+
+
+
+
+
+
 
 // const searchMovie = () => {
 //     let input = document.getElementById('search-input')
 //     let movieName = input.value
   
-//     if (input.value !== "") {
-//       input.value = ''
-//       console.log('funciono')
-//       // aca va funcion de recorrer api
-//     }
-// }
 
-// const keyPress = event => {
-//     if (event.keycode === 13) {
-//         searchMovie()
-//     }
-// }
 
-fetch("https://api.themoviedb.org/3/movie/550?api_key=d25219b09e23f4a8cbeed6c5ebe7ac2a")
+/* const keyPress = event => {
+    if (event.code === 'Enter') {
+    
+    }
+} */
+
+    //Search
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchInput}`)
+    .then(response =>  response.json())
+    .then( resSearch => console.log(resSearch.results))
+
+
+
+
+    
+
+    //TopRated
+/*     fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}`)
+        .then(response =>  response.json())
+        .then( resTopRated => console.log(resTopRated.results)) */
+
+        //Upcoming
+/*     fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}`)
+    .then(response =>  response.json())
+    .then( resUpcoming => console.log(resUpcoming.results))
+ */
+    //NowPlaying
+
+/*     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${api_Key}`)
     .then(response => response.json())
-    .then(res => {
-        console.log(res);
-        // const {data} = res
-        // data.map(({id, name}) => console.log(`id: ${id}\nname: ${name}`))
-    })
+    .then( resNowPlaying => console.log(resNowPlaying.results)) */
+
+
+    
