@@ -5,14 +5,6 @@ const topRatedMovies = `https://api.themoviedb.org/3/movie/top_rated?api_key=${a
 const upcomingMovies = `https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}`
 const nowPlayingMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}`
 
-/*     
-fetch (popularMovies)
-    .then( (response) => response.json())
-    .then( resSection => console.log(resSection.results)) */
-
-
-// //Popular
-
 
 const onLoad = () => {
     sectionPopular();
@@ -21,7 +13,6 @@ const onLoad = () => {
 
 const popular = () => {
     let popular = document.getElementById('popular')
-
 }
 
     const sectionPopular = () => {  
@@ -29,19 +20,6 @@ const popular = () => {
         .then(response =>  response.json())
         .then(resPopular => console.log(resPopular.results))
     }
-
-
-
-
-
-
-
-
-// const searchMovie = () => {
-//     let input = document.getElementById('search-input')
-//     let movieName = input.value
-  
-
 
 /* const keyPress = event => {
     if (event.code === 'Enter') {
@@ -53,11 +31,6 @@ const popular = () => {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchInput}`)
     .then(response =>  response.json())
     .then( resSearch => console.log(resSearch.results))
-
-
-
-
-    
 
     //TopRated
 /*     fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}`)
@@ -74,6 +47,24 @@ const popular = () => {
 /*     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${api_Key}`)
     .then(response => response.json())
     .then( resNowPlaying => console.log(resNowPlaying.results)) */
-
-
     
+const getData = (sections) => {
+    fetch (sections)
+    .then(response => response.json())
+    .then (resData => resData.results) 
+    resData = []    
+};
+
+const infoToShow = (resData) => {
+    e = id
+    //let preview = {poster_path, original_title}
+    resData.forEach((e) => {
+        resData.filter(poster_path, original_title)
+        return preview 
+    })
+}
+
+popular.onclick(document.createElement('div'))
+
+//prueba de creación de objeto con la data que tenemos que buscar
+//let data = resData.results.filter( e => e.poster_path, e.original_title) {}
