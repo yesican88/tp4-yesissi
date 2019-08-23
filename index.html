@@ -12,16 +12,16 @@
     <title>Letterboxd</title>
 </head>
 
-<body >
+<body>
     <div class="container">
         <nav class="nav">
             <a href="#" class="logo"><img src="images/iso_blanco_transparent.svg" alt="Ada"></a>
             <ul class="nav-list">
-                <li class='nav-item'>
+                <li class='nav-item' >
                     <a href="#" class="nav-link">
-                        <div class="image-container">
+                        <div class="image-container" id="popular" >
                                 <div class="svg"><i class="fas fa-arrow-up"></i></div>
-                            <span class="title-popular">POPULAR</span>
+                            <span class="title-popular" onclick="popular()">POPULAR</span>
                         </div>
                     </a>
                 </li>
@@ -54,8 +54,21 @@
         <header class="search">
             <div class="image-container">
                 <div class="search-icon"><i class="fas fa-search"></i></div>
-                <input type="text" placeholder="Search for a movie..." class="search-input" >
+                <input type="text" placeholder="Search for a movie..." class="search-input" onkeypress="keyPress()">
             </div>
+            <!-- hay que ocultar esto con una clase, todavia no puse clases ni hice funcion de ocultar -->
+            <div id="search-movie-info" class="hide-show hidden"> 
+                        <p class="results"></p>
+                </div>
+                <div id="search-container">
+                        <div class="movies-body" id="search-section">
+                            <div id="movie-node">
+                                <img id='movie-poster' src="">
+                                <h3 id='movie-title'></h3>
+                            </div>
+                        </div>
+                        <button type="button" class="load-more">Load more</button>
+                    </div>
         </header>
         <section class="main">
             <section class="home">
