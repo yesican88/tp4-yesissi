@@ -28,19 +28,36 @@ const nowPlayingMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key
 //FUNCION QUE TRAE INFO DE LAS APIS Y LAS FILTRA POR LA INFO A MOSTRAR
 const getData = category => {
     fetch (`https://api.themoviedb.org/3/movie/${category}?api_key=${api_key}`)
-    .then(response => response.json())
+    .then (response => response.json())
     .then (resData => {
         let {results} = resData
-        infoToShow(results)
-    })
-    
+        let movies = results.map(e => apiMovieToMovie(e))
+        //infoToShow(results)
+    })   
 };
 
-const showTitle = arr => console.log(arr.map(e => e.title))
+getData('popular')
+
+//TRANSFORMA 
+const apiMovieToMovie = apiMovie => {
+    let {title,id, poster_path} = apiMovie
+    let movie = {
+        title: title, 
+        id: id, 
+        img: `https://image.tmdb.org/t/p/w500/${poster_path}`
+    }
+    return movie
+}
+
+//INFORMACION DE LA PELICULA
+/* const showTitle = arr => console.log(arr.map(e => e.title))
 const showId = arr => console.log(arr.map(e => e.id))
 const showImg = (arr, img) => {
     arr.map(e => img.src = `https://image.tmdb.org/t/p/w500/${e.poster_path}`)
-    } 
+    }  */
+/* const descripcion
+const genero
+const release */
    
 const infoToShow = param => {
     showTitle(param)
@@ -51,11 +68,13 @@ const popularMovies = getData('popular');
 
 const showPopular = () => {
     let containerPopular = document.getElementById('lalala')
-    //containerPopular.innerHTML= ''
-    let movies = document.createElement("div");
-    movies.innerText= popularMovies;
-    containerPopular.appendChild(movies);
-}
+    containerPopular.innerHTML= ''
+    let movies = document.createElement("a");
+    movies.innerText= e.popularMovies;
+    containerPopular.appendChild(e);    
+    }
+
+showPopular()
 
 
 
