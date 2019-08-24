@@ -12,7 +12,7 @@
     <title>Letterboxd</title>
 </head>
 
-<body>
+<body onload="onLoad()">
     <div class="container">
         <nav class="nav">
             <a href="#" class="logo"><img src="images/iso_blanco_transparent.svg" alt="Ada"></a>
@@ -21,7 +21,7 @@
                     <a href="#" class="nav-link">
                         <div class="image-container" id="popular" >
                                 <div class="svg"><i class="fas fa-arrow-up"></i></div>
-                            <span class="title-popular" onclick="popular()">POPULAR</span>
+                            <a class="title-popular" onclick="showPopular()">POPULAR</a>
                         </div>
                     </a>
                 </li>
@@ -67,6 +67,7 @@
                         <header class="movies-header">
                             <h2>Popular</h2>
                             <a href="#" class="view-all">View All</a>
+                            <div id="lalala"></div>
                         </header>
                     </div>
                     <div class="movies" id="top-rated-movies">
