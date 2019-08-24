@@ -7,9 +7,8 @@ const upcomingMovies = `https://api.themoviedb.org/3/movie/upcoming?api_key=${ap
 const nowPlayingMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}` */
 
 
-// const onLoad = () => {
-//    showPopular();
-// } 
+const onLoad = () => {
+ } 
 
 
 /* const keyPress = event => {
@@ -31,26 +30,26 @@ const getData = category => {
     .then (response => response.json())
     .then (resData => {
         let {results} = resData
-        let movies = results.map(e => apiMovieToMovie(e))
-        //infoToShow(results)
-    })   
+        let movies = (e) => results.map(e => apiMovieToMovie(e))
+        printResults(movies)
+    })
 };
 
-getData('popular')
 
-//TRANSFORMA 
+//TRAE LOS OBJETOS Y LOS FILTRO CON LA INFO QUE QUIERO MOSTRAR
 const apiMovieToMovie = apiMovie => {
-    let {title,id, poster_path} = apiMovie
+    let {title, poster_path} = apiMovie
     let movie = {
         title: title, 
-        id: id, 
         img: `https://image.tmdb.org/t/p/w500/${poster_path}`
     }
     return movie
 }
 
+//mostrar los resultados en pantalla: crear un nodo con la seccion/crear un elemento 'a'/ apendear mi resultado al nodo (necesito pasarle un parámetro para que tome 'movies' de get data y que ese sea mi resultado a mostrar)
+
 //INFORMACION DE LA PELICULA
-/* const showTitle = arr => console.log(arr.map(e => e.title))
+/* const showTitle = arr => (arr.map(e => e.title))
 const showId = arr => console.log(arr.map(e => e.id))
 const showImg = (arr, img) => {
     arr.map(e => img.src = `https://image.tmdb.org/t/p/w500/${e.poster_path}`)
@@ -59,31 +58,23 @@ const showImg = (arr, img) => {
 const genero
 const release */
    
-const infoToShow = param => {
-    showTitle(param)
-    showImg(param, img)
+/* const infoToShow = (title, img) => {
+     title = e.title
+     img = e.img
+}*/
+
+const popularMovies = getData('popular'); 
+
+
+const printResults = (param) => {
+    let containerPopular = document.getElementById('popular-movies');
+    containerPopular.innerHTML = '';
+    let movie= document.createElement('li');
+    movie.innerText = param;
+    containerPopular.appendChild(movie);
 }
 
-const popularMovies = getData('popular');
 
-const showPopular = () => {
-    let containerPopular = document.getElementById('lalala')
-    containerPopular.innerHTML= ''
-    let movies = document.createElement("a");
-    movies.innerText= e.popularMovies;
-    containerPopular.appendChild(e);    
-    }
-
-showPopular()
-
-
-
-/* const showPopular = () => {
-    const popularMovies = getData('popular');
-    let containerPopular = document.getElementById('lalala')
-    let movies = containerPopular.createElemen('div')
-    movies.appendchild(popularMovies)  
-} */
 
 
  
